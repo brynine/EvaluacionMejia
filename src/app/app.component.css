@@ -1,0 +1,75 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.search-box {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-top {
+  background-color: gold;
+}
+
+.card-normal {
+  background-color: #e0e0e0;
+}
+
+.image-box {
+  width: 100%;
+  text-align: center;
+}
+
+.image-box img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.no-image {
+  width: 100%;
+  padding: 24px 0;
+  text-align: center;
+  background-color: #cccccc;
+  border-radius: 4px;
+}
+
+.info h2 {
+  margin: 4px 0;
+  font-size: 18px;
+}
+
+.btn-watch {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+}
+
+.btn-watch-active {
+  background-color: #13cd0c;
+}
+
+.error {
+  color: red;
+}

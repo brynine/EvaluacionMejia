@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Guía de Televisión</h1>
+
+  <form (ngSubmit)="buscar()" class="search-box">
+    <label for="letra">Buscar por letra:</label>
+    <input
+      id="letra"
+      type="text"
+      [(ngModel)]="searchTerm"
+      name="searchTerm"
+      maxlength="1"
+      required
+    />
+    <button type="submit">Buscar</button>
+  </form>
+
+  <p *ngIf="cargando">Cargando...</p>
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <div class="cards">
+    <div *ngFor="let item of resultados" [class]="obtenerClaseRating(item.show)">
+      <div class="image-box">
+        <img
+          *ngIf="item.show.image && item.show.image.medium; else sinImagen"
+          [src]="item.show.image.medium"
+          [alt]="item.show.name"
+        />
+        <ng-template #sinImagen>
+          <div class="no-image">Sin imagen</div>
+        </ng-template>
+      </div>
+
+      <div class="info">
+        <h2>{{ item.show.name }}</h2>
+        <p>
+          Rating:
+          <span>{{ textoRating(item.show) }}</span>
+        </p>
+        <p>
+          Estreno:
+          <span>
+            {{ item.show.premiered ? (item.show.premiered | date : 'yyyy') : 'N/A' }}
+          </span>
+        </p>
+
+        <button type="button" [class]="claseBotonWatch(item.show)" (click)="toggleWatch(item.show)">
+          {{ textoBotonWatch(item.show) }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
